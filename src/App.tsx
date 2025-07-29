@@ -1,21 +1,28 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom'
 
-import IndexPage from "@/pages/index";
-import DocsPage from "@/pages/docs";
-import PricingPage from "@/pages/pricing";
-import BlogPage from "@/pages/blog";
-import AboutPage from "@/pages/about";
+import IndexPage from '@/pages/public/index'
+import { Home } from './pages/private/home'
+import Login from './pages/public/login'
+import CreateUser from './pages/public/createUser'
+import { Auth } from './class/auth'
 
 function App() {
+  const auth = new Auth()
   return (
     <Routes>
       <Route element={<IndexPage />} path="/" />
-      <Route element={<DocsPage />} path="/docs" />
-      <Route element={<PricingPage />} path="/pricing" />
-      <Route element={<BlogPage />} path="/blog" />
-      <Route element={<AboutPage />} path="/about" />
+      <Route element={<Login />} path="/login" />
+      <Route element={<CreateUser />} path="/signup" />
+
+      {/* rotas Privadas Gestor */}
+
+      {auth.user.isClient ? (
+        <Route element={<Home auth={auth} />} path="/client/main" />
+      ) : (
+        <Route element={<Home auth={auth} />} path="/gestor/main" />
+      )}
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App
