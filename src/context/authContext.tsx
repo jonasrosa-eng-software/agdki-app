@@ -53,6 +53,7 @@ const AuthProvider = (props: AuthProviderProps) => {
           });
           return;
         }
+        redirect("/login");
       })
       .catch((error) => {
         addToast({
@@ -66,7 +67,6 @@ const AuthProvider = (props: AuthProviderProps) => {
   const signIn = useCallback((values: ISignInProps) => {
     //cryptografar password antes de logar
     // values.password = encrypt(values.password, passWordKey)
-    console.log(values);
 
     API.get<ResponseModel<AuthUserProps>>("/sign-in", {
       params: values,
