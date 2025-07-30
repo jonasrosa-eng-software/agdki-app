@@ -6,7 +6,7 @@ const URL = API_URL;
 
 const API = axios.create({
   baseURL: URL, // Use the API_URL constant if needed
-  timeout: 1000,
+  timeout: 10000,
   headers: { "X-Custom-Header": "foobar" },
 });
 
