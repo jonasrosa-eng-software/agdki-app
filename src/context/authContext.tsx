@@ -81,7 +81,7 @@ const AuthProvider = (props: AuthProviderProps) => {
           });
           return;
         }
-        redirect(`/main/${resp.idMnt}`);
+        redirect(`/gestor/main/${resp.idMnt}`);
       })
       .catch((error) => {
         addToast({
