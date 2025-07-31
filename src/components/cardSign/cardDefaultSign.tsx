@@ -15,7 +15,7 @@ export const CardDefaultSign = (props: ICardDefaultSignProps) => {
   const { children, isSignIn, onCancel, onSubmit } = props;
   return (
     <Card className="flex h-full w-full max-w-screen-sm gap-2 p-2">
-      <CardHeader className="flex h-auto flex-col items-center gap-1">
+      <CardHeader className="flex h-auto flex-col items-center gap-1 ">
         <div className="flex w-full justify-start">
           <ArronLeft color="#006FEE" onClick={onCancel} />
         </div>
@@ -26,8 +26,10 @@ export const CardDefaultSign = (props: ICardDefaultSignProps) => {
           <h2>{title}</h2>
         </div> */}
       </CardHeader>
-      <CardBody className="flex flex-col justify-start ">{children}</CardBody>
-      <CardFooter className="flex flex-col justify-evenly  mb-3">
+      <CardBody className="flex flex-col justify-start h-3/5">
+        {children}
+      </CardBody>
+      <CardFooter className="flex flex-col justify-center  mb-3 h-1/5">
         {isSignIn ? (
           <>
             <Button
