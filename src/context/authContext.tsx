@@ -72,7 +72,7 @@ const AuthProvider = (props: AuthProviderProps) => {
       params: values,
     })
       .then((response) => {
-        const { resp, status } = response.data;
+        const { status } = response.data;
         if (status) {
           addToast({
             title: "Falha tentar Logar",
@@ -81,7 +81,8 @@ const AuthProvider = (props: AuthProviderProps) => {
           });
           return;
         }
-        redirect(`/gestor/main/${resp.idMnt}`);
+
+        redirect(`/gestor/main`);
       })
       .catch((error) => {
         addToast({
