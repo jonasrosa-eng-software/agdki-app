@@ -12,21 +12,22 @@ interface ICardDefaultSignProps {
   onCancel?: () => void;
 }
 export const CardDefaultSign = (props: ICardDefaultSignProps) => {
-  const { title, children, isSignIn, onCancel, onSubmit } = props;
+  const { children, isSignIn, onCancel, onSubmit } = props;
   return (
-    <Card className="flex h-full w-full max-w-screen-sm gap-4 p-2">
-      <CardHeader className="flex h-auto flex-col items-center gap-4">
+    <Card className="flex h-full w-full max-w-screen-sm gap-2 p-2">
+      <CardHeader className="flex h-auto flex-col items-center gap-1">
         <div className="flex w-full justify-start">
           <ArronLeft color="#006FEE" onClick={onCancel} />
         </div>
+
         <Image className="w-[200px]" src={logoLight} />
 
-        <div className="text-center text-default-900">
+        {/* <div className="text-center text-default-900">
           <h2>{title}</h2>
-        </div>
+        </div> */}
       </CardHeader>
-      <CardBody className="flex flex-col justify-start">{children}</CardBody>
-      <CardFooter className="flex flex-col justify-evenly">
+      <CardBody className="flex flex-col justify-start ">{children}</CardBody>
+      <CardFooter className="flex flex-col justify-evenly  mb-3">
         {isSignIn ? (
           <>
             <Button
@@ -38,7 +39,7 @@ export const CardDefaultSign = (props: ICardDefaultSignProps) => {
             </Button>
             <Button
               className="w-full"
-              color="secondary"
+              color="primary"
               variant="light"
               onPress={onCancel}
             >
